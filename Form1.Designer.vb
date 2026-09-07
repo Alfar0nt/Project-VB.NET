@@ -48,6 +48,9 @@ Partial Class Form1
         ComboBoxGolonganTunjangan = New ComboBox()
         TextBoxTunjangan = New TextBox()
         Label8 = New Label()
+        ColumnHeader6 = New ColumnHeader()
+        ColumnHeader7 = New ColumnHeader()
+        ColumnHeader8 = New ColumnHeader()
         SuspendLayout()
         ' 
         ' TextBoxKode
@@ -66,7 +69,7 @@ Partial Class Form1
         ' 
         ' TextBoxGajiPokok
         ' 
-        TextBoxGajiPokok.Location = New Point(262, 311)
+        TextBoxGajiPokok.Location = New Point(262, 294)
         TextBoxGajiPokok.Name = "TextBoxGajiPokok"
         TextBoxGajiPokok.Size = New Size(361, 47)
         TextBoxGajiPokok.TabIndex = 2
@@ -104,17 +107,17 @@ Partial Class Form1
         ButtonTambahData.BackColor = Color.Chartreuse
         ButtonTambahData.Location = New Point(262, 406)
         ButtonTambahData.Name = "ButtonTambahData"
-        ButtonTambahData.Size = New Size(1810, 58)
+        ButtonTambahData.Size = New Size(1845, 58)
         ButtonTambahData.TabIndex = 6
         ButtonTambahData.Text = "Tambah Data Karyawan"
         ButtonTambahData.UseVisualStyleBackColor = False
         ' 
         ' lvDataKaryawan
         ' 
-        lvDataKaryawan.Columns.AddRange(New ColumnHeader() {ColumnHeader1, ColumnHeader2, ColumnHeader3, ColumnHeader4, ColumnHeader5})
+        lvDataKaryawan.Columns.AddRange(New ColumnHeader() {ColumnHeader1, ColumnHeader2, ColumnHeader3, ColumnHeader4, ColumnHeader5, ColumnHeader6, ColumnHeader7, ColumnHeader8})
         lvDataKaryawan.Location = New Point(262, 500)
         lvDataKaryawan.Name = "lvDataKaryawan"
-        lvDataKaryawan.Size = New Size(1810, 334)
+        lvDataKaryawan.Size = New Size(1845, 334)
         lvDataKaryawan.TabIndex = 7
         lvDataKaryawan.UseCompatibleStateImageBehavior = False
         lvDataKaryawan.View = View.Details
@@ -127,21 +130,28 @@ Partial Class Form1
         ' ColumnHeader2
         ' 
         ColumnHeader2.Text = "Nama Karyawan"
-        ColumnHeader2.Width = 250
+        ColumnHeader2.TextAlign = HorizontalAlignment.Center
+        ColumnHeader2.Width = 300
         ' 
         ' ColumnHeader3
         ' 
+        ColumnHeader3.DisplayIndex = 3
         ColumnHeader3.Text = "Gaji Pokok"
+        ColumnHeader3.TextAlign = HorizontalAlignment.Center
         ColumnHeader3.Width = 200
         ' 
         ' ColumnHeader4
         ' 
+        ColumnHeader4.DisplayIndex = 4
         ColumnHeader4.Text = "Jam Lembur"
+        ColumnHeader4.TextAlign = HorizontalAlignment.Center
         ColumnHeader4.Width = 200
         ' 
         ' ColumnHeader5
         ' 
+        ColumnHeader5.DisplayIndex = 5
         ColumnHeader5.Text = "Insentif"
+        ColumnHeader5.TextAlign = HorizontalAlignment.Center
         ColumnHeader5.Width = 200
         ' 
         ' ButtonRekap
@@ -166,7 +176,7 @@ Partial Class Form1
         ' Label2
         ' 
         Label2.AutoSize = True
-        Label2.Location = New Point(12, 205)
+        Label2.Location = New Point(26, 205)
         Label2.Name = "Label2"
         Label2.Size = New Size(230, 41)
         Label2.TabIndex = 10
@@ -175,7 +185,7 @@ Partial Class Form1
         ' Label3
         ' 
         Label3.AutoSize = True
-        Label3.Location = New Point(26, 309)
+        Label3.Location = New Point(26, 292)
         Label3.Name = "Label3"
         Label3.Size = New Size(158, 41)
         Label3.TabIndex = 11
@@ -244,14 +254,14 @@ Partial Class Form1
         ComboBoxGolonganTunjangan.DropDownStyle = ComboBoxStyle.DropDownList
         ComboBoxGolonganTunjangan.FormattingEnabled = True
         ComboBoxGolonganTunjangan.Items.AddRange(New Object() {"Golongan 1", "Golongan 2", "Golongan 3", "Golongan 4", "Golongan 5"})
-        ComboBoxGolonganTunjangan.Location = New Point(1580, 226)
+        ComboBoxGolonganTunjangan.Location = New Point(1580, 205)
         ComboBoxGolonganTunjangan.Name = "ComboBoxGolonganTunjangan"
         ComboBoxGolonganTunjangan.Size = New Size(527, 49)
         ComboBoxGolonganTunjangan.TabIndex = 18
         ' 
         ' TextBoxTunjangan
         ' 
-        TextBoxTunjangan.Location = New Point(1580, 325)
+        TextBoxTunjangan.Location = New Point(1580, 294)
         TextBoxTunjangan.Name = "TextBoxTunjangan"
         TextBoxTunjangan.ReadOnly = True
         TextBoxTunjangan.Size = New Size(527, 47)
@@ -260,11 +270,30 @@ Partial Class Form1
         ' Label8
         ' 
         Label8.AutoSize = True
-        Label8.Location = New Point(1388, 325)
+        Label8.Location = New Point(1388, 300)
         Label8.Name = "Label8"
-        Label8.Size = New Size(118, 41)
+        Label8.Size = New Size(157, 41)
         Label8.TabIndex = 20
-        Label8.Text = "Insensif"
+        Label8.Text = "Tunjangan"
+        ' 
+        ' ColumnHeader6
+        ' 
+        ColumnHeader6.DisplayIndex = 2
+        ColumnHeader6.Text = "Jenis Kelamin"
+        ColumnHeader6.TextAlign = HorizontalAlignment.Center
+        ColumnHeader6.Width = 250
+        ' 
+        ' ColumnHeader7
+        ' 
+        ColumnHeader7.Text = "Golongan"
+        ColumnHeader7.TextAlign = HorizontalAlignment.Center
+        ColumnHeader7.Width = 200
+        ' 
+        ' ColumnHeader8
+        ' 
+        ColumnHeader8.Text = "Tunjangan"
+        ColumnHeader8.TextAlign = HorizontalAlignment.Center
+        ColumnHeader8.Width = 200
         ' 
         ' Form1
         ' 
@@ -324,5 +353,8 @@ Partial Class Form1
     Friend WithEvents ComboBoxGolonganTunjangan As ComboBox
     Friend WithEvents TextBoxTunjangan As TextBox
     Friend WithEvents Label8 As Label
+    Friend WithEvents ColumnHeader6 As ColumnHeader
+    Friend WithEvents ColumnHeader7 As ColumnHeader
+    Friend WithEvents ColumnHeader8 As ColumnHeader
 
 End Class
