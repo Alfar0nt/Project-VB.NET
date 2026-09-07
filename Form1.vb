@@ -1,11 +1,4 @@
 ﻿Public Class Form1
-    Private Sub lvDataKaryawan_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lvDataKaryawan.SelectedIndexChanged
-
-    End Sub
-
-    Private Sub Label5_Click(sender As Object, e As EventArgs) Handles Label5.Click
-
-    End Sub
 
     Private Sub ComboBoxJamLembur_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxJamLembur.SelectedIndexChanged
         If ComboBoxJamLembur.Text = ">24hours" Then
@@ -17,42 +10,88 @@
         End If
     End Sub
 
+    Private Sub ComboBoxGolonganTunjangan_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxGolonganTunjangan.SelectedIndexChanged
+        Select Case ComboBoxGolonganTunjangan.Text
+            Case "Golongan 1"
+                TextBoxTunjangan.Text = "500000"
+            Case "Golongan 2"
+                TextBoxTunjangan.Text = "1000000"
+            Case "Golongan 3"
+                TextBoxTunjangan.Text = "1500000"
+            Case "Golongan 4"
+                TextBoxTunjangan.Text = "2000000"
+            Case "Golongan 5"
+                TextBoxTunjangan.Text = "2500000"
+        End Select
+    End Sub
+
     Private Sub ButtonClear_Click(sender As Object, e As EventArgs) Handles ButtonClear.Click
+        lvDataKaryawan.Items.Clear()
         Dim ctr As Control
         For Each ctr In Me.Controls
             If TypeOf (ctr) Is TextBox Then
                 ctr.Text = ""
             ElseIf TypeOf (ctr) Is ComboBox Then
                 DirectCast(ctr, ComboBox).SelectedItem = Nothing
+            ElseIf TypeOf (ctr) Is RadioButton Then
+                DirectCast(ctr, RadioButton).Checked = False
             End If
         Next
     End Sub
 
     Private Sub ButtonTambahData_Click(sender As Object, e As EventArgs) Handles ButtonTambahData.Click
+        Dim gender As String = ""
+        If RadioButtonLaki.Checked Then
+            gender = "Laki-Laki"
+        ElseIf RadioButtonPerempuan.Checked Then
+            gender = "Perempuan"
+        End If
+
         lvDataKaryawan.Items.Add(TextBoxKode.Text)
-        lvDataKaryawan.Items(lvDataKaryawan.Items.Count - 1).SubItems.Add(TextBoxNama.Text)
-        lvDataKaryawan.Items(lvDataKaryawan.Items.Count - 1).SubItems.Add(TextBoxGajiPokok.Text)
-        lvDataKaryawan.Items(lvDataKaryawan.Items.Count - 1).SubItems.Add(ComboBoxJamLembur.Text)
-        lvDataKaryawan.Items(lvDataKaryawan.Items.Count - 1).SubItems.Add(TextBoxInsentif.Text)
+        With lvDataKaryawan.Items(lvDataKaryawan.Items.Count - 1)
+            .SubItems.Add(TextBoxNama.Text)
+            .SubItems.Add(TextBoxGajiPokok.Text)
+            .SubItems.Add(ComboBoxJamLembur.Text)
+            .SubItems.Add(TextBoxInsentif.Text)
+            .SubItems.Add(gender)
+            .SubItems.Add(ComboBoxGolonganTunjangan.Text)
+            .SubItems.Add(TextBoxTunjangan.Text)
+        End With
+
+        For Each ctr As Control In Me.Controls
+            If TypeOf (ctr) Is TextBox Then
+                ctr.Text = ""
+            ElseIf TypeOf (ctr) Is ComboBox Then
+                DirectCast(ctr, ComboBox).SelectedItem = Nothing
+            ElseIf TypeOf (ctr) Is RadioButton Then
+                DirectCast(ctr, RadioButton).Checked = False
+            End If
+        Next
     End Sub
 
     Private Sub ButtonRekap_Click(sender As Object, e As EventArgs) Handles ButtonRekap.Click
         Dim totalGaji As Integer = 0
 
-        Form2.lvRekapGaji.Items().Clear()
+        Form2.lvRekapGaji.Items.Clear()
 
         For i As Integer = 0 To lvDataKaryawan.Items.Count - 1
-            Form2.lvRekapGaji.Items.Add(lvDataKaryawan.Items(i).SubItems(1).Text)
-            Form2.lvRekapGaji.Items(i).SubItems.Add(lvDataKaryawan.Items(i).SubItems(1).Text)
-            Form2.lvRekapGaji.Items(i).SubItems.Add(lvDataKaryawan.Items(i).SubItems(2).Text)
-            Form2.lvRekapGaji.Items(i).SubItems.Add(lvDataKaryawan.Items(i).SubItems(3).Text)
-            Form2.lvRekapGaji.Items(i).SubItems.Add(lvDataKaryawan.Items(i).SubItems(4).Text)
-            Form2.lvRekapGaji.Items(i).SubItems.Add(CInt(lvDataKaryawan.Items(i).SubItems(2).Text) + CInt(lvDataKaryawan.Items(i).SubItems(2).Text))
+            Dim gajiPokok As Integer = CInt(lvDataKaryawan.Items(i).SubItems(2).Text)
+            Dim insentif As Integer = CInt(lvDataKaryawan.Items(i).SubItems(4).Text)
+            Dim tunjangan As Integer = CInt(lvDataKaryawan.Items(i).SubItems(7).Text)
+            Dim total As Integer = gajiPokok + insentif + tunjangan
 
-        Next
-
-        For i As Integer = 0 To Form2.lvRekapGaji.Items.Count - 1
-            totalGaji += CInt(Form2.lvRekapGaji.Items(i).SubItems(5).Text)
+            Form2.lvRekapGaji.Items.Add(lvDataKaryawan.Items(i).SubItems(0).Text)
+            With Form2.lvRekapGaji.Items(i)
+                .SubItems.Add(lvDataKaryawan.Items(i).SubItems(1).Text)
+                .SubItems.Add(lvDataKaryawan.Items(i).SubItems(5).Text)
+                .SubItems.Add(lvDataKaryawan.Items(i).SubItems(2).Text)
+                .SubItems.Add(lvDataKaryawan.Items(i).SubItems(3).Text)
+                .SubItems.Add(lvDataKaryawan.Items(i).SubItems(4).Text)
+                .SubItems.Add(total.ToString())
+                .SubItems.Add(lvDataKaryawan.Items(i).SubItems(6).Text)
+                .SubItems.Add(lvDataKaryawan.Items(i).SubItems(7).Text)
+            End With
+            totalGaji += total
         Next
 
         Form2.TextBoxTotalGaji.Text = totalGaji
@@ -61,19 +100,4 @@
         Form2.Show()
     End Sub
 
-    Private Sub TextBoxInsentif_TextChanged(sender As Object, e As EventArgs) Handles TextBoxInsentif.TextChanged
-
-    End Sub
-
-    Private Sub Label6_Click(sender As Object, e As EventArgs) Handles Label6.Click
-
-    End Sub
-
-    Private Sub Label7_Click(sender As Object, e As EventArgs) Handles Label7.Click
-
-    End Sub
-
-    Private Sub Label8_Click(sender As Object, e As EventArgs) Handles Label8.Click
-
-    End Sub
 End Class
