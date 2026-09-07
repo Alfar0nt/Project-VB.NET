@@ -15,3 +15,4 @@ D:\github-repo\visual-studio\form-app\Pertemuan3-Looping\obj\Debug\net10.0-windo
 D:\github-repo\visual-studio\form-app\Pertemuan3-Looping\obj\Debug\net10.0-windows\Pertemuan3-Looping.pdb
 D:\github-repo\visual-studio\form-app\Pertemuan3-Looping\obj\Debug\net10.0-windows\Pertemuan3-Looping.genruntimeconfig.cache
 D:\github-repo\visual-studio\form-app\Pertemuan3-Looping\obj\Debug\net10.0-windows\ref\Pertemuan3-Looping.dll
+D:\github-repo\visual-studio\form-app\Pertemuan3-Looping\obj\Debug\net10.0-windows\Pertemuan3-Looping.sourcelink.json

@@ -38,9 +38,10 @@ Partial Class Form2
         ' Label1
         ' 
         Label1.AutoSize = True
-        Label1.Location = New Point(705, 69)
+        Label1.Font = New Font("Segoe UI", 20F, FontStyle.Bold)
+        Label1.Location = New Point(561, 53)
         Label1.Name = "Label1"
-        Label1.Size = New Size(291, 41)
+        Label1.Size = New Size(700, 89)
         Label1.TabIndex = 0
         Label1.Text = "Rekap Gaji Karyawan"
         ' 
@@ -97,9 +98,10 @@ Partial Class Form2
         ' Label2
         ' 
         Label2.AutoSize = True
-        Label2.Location = New Point(952, 926)
+        Label2.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label2.Location = New Point(916, 926)
         Label2.Name = "Label2"
-        Label2.Size = New Size(309, 41)
+        Label2.Size = New Size(332, 41)
         Label2.TabIndex = 3
         Label2.Text = "Total Gaji Keseluruhan"
         ' 

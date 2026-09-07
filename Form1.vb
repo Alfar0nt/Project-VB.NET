@@ -42,7 +42,7 @@
         Form2.lvRekapGaji.Items().Clear()
 
         For i As Integer = 0 To lvDataKaryawan.Items.Count - 1
-            Form2.lvRekapGaji.Items.Add(lvDataKaryawan.Items(i).SubItems(1).Text)
+            Form2.lvRekapGaji.Items.Add(lvDataKaryawan.Items(i).Text)
             Form2.lvRekapGaji.Items(i).SubItems.Add(lvDataKaryawan.Items(i).SubItems(1).Text)
             Form2.lvRekapGaji.Items(i).SubItems.Add(lvDataKaryawan.Items(i).SubItems(2).Text)
             Form2.lvRekapGaji.Items(i).SubItems.Add(lvDataKaryawan.Items(i).SubItems(3).Text)

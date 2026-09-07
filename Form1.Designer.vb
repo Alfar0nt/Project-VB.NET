@@ -115,27 +115,31 @@ Partial Class Form1
         ' ColumnHeader1
         ' 
         ColumnHeader1.Text = "Kode Karyawan"
-        ColumnHeader1.Width = 250
+        ColumnHeader1.Width = 300
         ' 
         ' ColumnHeader2
         ' 
         ColumnHeader2.Text = "Nama Karyawan"
-        ColumnHeader2.Width = 250
+        ColumnHeader2.TextAlign = HorizontalAlignment.Center
+        ColumnHeader2.Width = 300
         ' 
         ' ColumnHeader3
         ' 
         ColumnHeader3.Text = "Gaji Pokok"
-        ColumnHeader3.Width = 200
+        ColumnHeader3.TextAlign = HorizontalAlignment.Center
+        ColumnHeader3.Width = 300
         ' 
         ' ColumnHeader4
         ' 
         ColumnHeader4.Text = "Jam Lembur"
-        ColumnHeader4.Width = 200
+        ColumnHeader4.TextAlign = HorizontalAlignment.Center
+        ColumnHeader4.Width = 300
         ' 
         ' ColumnHeader5
         ' 
         ColumnHeader5.Text = "Insentif"
-        ColumnHeader5.Width = 200
+        ColumnHeader5.TextAlign = HorizontalAlignment.Center
+        ColumnHeader5.Width = 300
         ' 
         ' ButtonRekap
         ' 
@@ -159,7 +163,7 @@ Partial Class Form1
         ' Label2
         ' 
         Label2.AutoSize = True
-        Label2.Location = New Point(12, 205)
+        Label2.Location = New Point(26, 205)
         Label2.Name = "Label2"
         Label2.Size = New Size(230, 41)
         Label2.TabIndex = 10
@@ -194,7 +198,7 @@ Partial Class Form1
         ' 
         ' Form1
         ' 
-        AutoScaleDimensions = New SizeF(17F, 41F)
+        AutoScaleDimensions = New SizeF(17.0F, 41.0F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(2075, 1016)
         Controls.Add(Label5)
