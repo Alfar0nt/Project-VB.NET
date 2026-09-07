@@ -16,7 +16,7 @@ Imports System.Reflection
 <Assembly: System.Reflection.AssemblyCompanyAttribute("Pertemuan3-Looping"),  _
  Assembly: System.Reflection.AssemblyConfigurationAttribute("Debug"),  _
  Assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0"),  _
- Assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0"),  _
+ Assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bcf031e501f8e661da3fe8956479485e73bdd511"),  _
  Assembly: System.Reflection.AssemblyProductAttribute("Pertemuan3-Looping"),  _
  Assembly: System.Reflection.AssemblyTitleAttribute("Pertemuan3-Looping"),  _
  Assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0"),  _

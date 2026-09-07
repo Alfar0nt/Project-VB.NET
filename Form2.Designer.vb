@@ -33,6 +33,9 @@ Partial Class Form2
         ButtonBack = New Button()
         Label2 = New Label()
         TextBoxTotalGaji = New TextBox()
+        ColumnHeader7 = New ColumnHeader()
+        ColumnHeader8 = New ColumnHeader()
+        ColumnHeader9 = New ColumnHeader()
         SuspendLayout()
         ' 
         ' Label1
@@ -46,10 +49,10 @@ Partial Class Form2
         ' 
         ' lvRekapGaji
         ' 
-        lvRekapGaji.Columns.AddRange(New ColumnHeader() {ColumnHeader1, ColumnHeader2, ColumnHeader3, ColumnHeader4, ColumnHeader5, ColumnHeader6})
-        lvRekapGaji.Location = New Point(270, 168)
+        lvRekapGaji.Columns.AddRange(New ColumnHeader() {ColumnHeader1, ColumnHeader2, ColumnHeader7, ColumnHeader3, ColumnHeader4, ColumnHeader5, ColumnHeader6, ColumnHeader8, ColumnHeader9})
+        lvRekapGaji.Location = New Point(93, 168)
         lvRekapGaji.Name = "lvRekapGaji"
-        lvRekapGaji.Size = New Size(1258, 695)
+        lvRekapGaji.Size = New Size(1771, 695)
         lvRekapGaji.TabIndex = 1
         lvRekapGaji.UseCompatibleStateImageBehavior = False
         lvRekapGaji.View = View.Details
@@ -62,32 +65,37 @@ Partial Class Form2
         ' ColumnHeader2
         ' 
         ColumnHeader2.Text = "Nama Karyawan"
+        ColumnHeader2.TextAlign = HorizontalAlignment.Center
         ColumnHeader2.Width = 250
         ' 
         ' ColumnHeader3
         ' 
         ColumnHeader3.Text = "Gaji Pokok"
-        ColumnHeader3.Width = 200
+        ColumnHeader3.TextAlign = HorizontalAlignment.Center
+        ColumnHeader3.Width = 170
         ' 
         ' ColumnHeader4
         ' 
         ColumnHeader4.Text = "Jam Lembur"
-        ColumnHeader4.Width = 200
+        ColumnHeader4.TextAlign = HorizontalAlignment.Center
+        ColumnHeader4.Width = 180
         ' 
         ' ColumnHeader5
         ' 
         ColumnHeader5.Text = "Insentif"
+        ColumnHeader5.TextAlign = HorizontalAlignment.Center
         ColumnHeader5.Width = 150
         ' 
         ' ColumnHeader6
         ' 
         ColumnHeader6.Text = "Total Gaji"
+        ColumnHeader6.TextAlign = HorizontalAlignment.Center
         ColumnHeader6.Width = 200
         ' 
         ' ButtonBack
         ' 
         ButtonBack.BackColor = SystemColors.ControlLight
-        ButtonBack.Location = New Point(270, 909)
+        ButtonBack.Location = New Point(93, 915)
         ButtonBack.Name = "ButtonBack"
         ButtonBack.Size = New Size(188, 58)
         ButtonBack.TabIndex = 2
@@ -97,7 +105,7 @@ Partial Class Form2
         ' Label2
         ' 
         Label2.AutoSize = True
-        Label2.Location = New Point(952, 926)
+        Label2.Location = New Point(1299, 915)
         Label2.Name = "Label2"
         Label2.Size = New Size(309, 41)
         Label2.TabIndex = 3
@@ -105,17 +113,35 @@ Partial Class Form2
         ' 
         ' TextBoxTotalGaji
         ' 
-        TextBoxTotalGaji.Location = New Point(1267, 926)
+        TextBoxTotalGaji.Location = New Point(1614, 915)
         TextBoxTotalGaji.Name = "TextBoxTotalGaji"
         TextBoxTotalGaji.ReadOnly = True
         TextBoxTotalGaji.Size = New Size(250, 47)
         TextBoxTotalGaji.TabIndex = 4
         ' 
+        ' ColumnHeader7
+        ' 
+        ColumnHeader7.Text = "Jenis Kelamin"
+        ColumnHeader7.TextAlign = HorizontalAlignment.Center
+        ColumnHeader7.Width = 200
+        ' 
+        ' ColumnHeader8
+        ' 
+        ColumnHeader8.Text = "Golongan"
+        ColumnHeader8.TextAlign = HorizontalAlignment.Center
+        ColumnHeader8.Width = 170
+        ' 
+        ' ColumnHeader9
+        ' 
+        ColumnHeader9.Text = "Tunjangan"
+        ColumnHeader9.TextAlign = HorizontalAlignment.Center
+        ColumnHeader9.Width = 170
+        ' 
         ' Form2
         ' 
         AutoScaleDimensions = New SizeF(17F, 41F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(1801, 1025)
+        ClientSize = New Size(1985, 1025)
         Controls.Add(TextBoxTotalGaji)
         Controls.Add(Label2)
         Controls.Add(ButtonBack)
@@ -138,4 +164,7 @@ Partial Class Form2
     Friend WithEvents ButtonBack As Button
     Friend WithEvents Label2 As Label
     Friend WithEvents TextBoxTotalGaji As TextBox
+    Friend WithEvents ColumnHeader7 As ColumnHeader
+    Friend WithEvents ColumnHeader8 As ColumnHeader
+    Friend WithEvents ColumnHeader9 As ColumnHeader
 End Class

@@ -41,6 +41,13 @@ Partial Class Form1
         Label3 = New Label()
         Label4 = New Label()
         Label5 = New Label()
+        RadioButtonPerempuan = New RadioButton()
+        RadioButtonLaki = New RadioButton()
+        Label6 = New Label()
+        Label7 = New Label()
+        ComboBoxGolonganTunjangan = New ComboBox()
+        TextBoxTunjangan = New TextBox()
+        Label8 = New Label()
         SuspendLayout()
         ' 
         ' TextBoxKode
@@ -69,25 +76,25 @@ Partial Class Form1
         ComboBoxJamLembur.DropDownStyle = ComboBoxStyle.DropDownList
         ComboBoxJamLembur.FormattingEnabled = True
         ComboBoxJamLembur.Items.AddRange(New Object() {">24hours", ">36hours", ">72hours"})
-        ComboBoxJamLembur.Location = New Point(1461, 101)
+        ComboBoxJamLembur.Location = New Point(986, 292)
         ComboBoxJamLembur.Name = "ComboBoxJamLembur"
-        ComboBoxJamLembur.Size = New Size(361, 49)
+        ComboBoxJamLembur.Size = New Size(206, 49)
         ComboBoxJamLembur.TabIndex = 3
         ' 
         ' TextBoxInsentif
         ' 
-        TextBoxInsentif.Location = New Point(1461, 194)
+        TextBoxInsentif.Location = New Point(1580, 109)
         TextBoxInsentif.Name = "TextBoxInsentif"
         TextBoxInsentif.ReadOnly = True
-        TextBoxInsentif.Size = New Size(361, 47)
+        TextBoxInsentif.Size = New Size(527, 47)
         TextBoxInsentif.TabIndex = 4
         ' 
         ' ButtonClear
         ' 
         ButtonClear.BackColor = Color.Tomato
-        ButtonClear.Location = New Point(1281, 300)
+        ButtonClear.Location = New Point(262, 862)
         ButtonClear.Name = "ButtonClear"
-        ButtonClear.Size = New Size(541, 58)
+        ButtonClear.Size = New Size(330, 58)
         ButtonClear.TabIndex = 5
         ButtonClear.Text = "Clear"
         ButtonClear.UseVisualStyleBackColor = False
@@ -97,7 +104,7 @@ Partial Class Form1
         ButtonTambahData.BackColor = Color.Chartreuse
         ButtonTambahData.Location = New Point(262, 406)
         ButtonTambahData.Name = "ButtonTambahData"
-        ButtonTambahData.Size = New Size(1560, 58)
+        ButtonTambahData.Size = New Size(1810, 58)
         ButtonTambahData.TabIndex = 6
         ButtonTambahData.Text = "Tambah Data Karyawan"
         ButtonTambahData.UseVisualStyleBackColor = False
@@ -107,7 +114,7 @@ Partial Class Form1
         lvDataKaryawan.Columns.AddRange(New ColumnHeader() {ColumnHeader1, ColumnHeader2, ColumnHeader3, ColumnHeader4, ColumnHeader5})
         lvDataKaryawan.Location = New Point(262, 500)
         lvDataKaryawan.Name = "lvDataKaryawan"
-        lvDataKaryawan.Size = New Size(1560, 334)
+        lvDataKaryawan.Size = New Size(1810, 334)
         lvDataKaryawan.TabIndex = 7
         lvDataKaryawan.UseCompatibleStateImageBehavior = False
         lvDataKaryawan.View = View.Details
@@ -140,9 +147,9 @@ Partial Class Form1
         ' ButtonRekap
         ' 
         ButtonRekap.BackColor = Color.Yellow
-        ButtonRekap.Location = New Point(1461, 876)
+        ButtonRekap.Location = New Point(1756, 862)
         ButtonRekap.Name = "ButtonRekap"
-        ButtonRekap.Size = New Size(361, 58)
+        ButtonRekap.Size = New Size(316, 58)
         ButtonRekap.TabIndex = 8
         ButtonRekap.Text = "Rekap Total Gaji"
         ButtonRekap.UseVisualStyleBackColor = False
@@ -177,7 +184,7 @@ Partial Class Form1
         ' Label4
         ' 
         Label4.AutoSize = True
-        Label4.Location = New Point(1255, 109)
+        Label4.Location = New Point(767, 292)
         Label4.Name = "Label4"
         Label4.Size = New Size(179, 41)
         Label4.TabIndex = 12
@@ -186,17 +193,91 @@ Partial Class Form1
         ' Label5
         ' 
         Label5.AutoSize = True
-        Label5.Location = New Point(1255, 200)
+        Label5.Location = New Point(1388, 109)
         Label5.Name = "Label5"
         Label5.Size = New Size(118, 41)
         Label5.TabIndex = 13
         Label5.Text = "Insensif"
         ' 
+        ' RadioButtonPerempuan
+        ' 
+        RadioButtonPerempuan.AutoSize = True
+        RadioButtonPerempuan.Location = New Point(986, 103)
+        RadioButtonPerempuan.Name = "RadioButtonPerempuan"
+        RadioButtonPerempuan.Size = New Size(206, 45)
+        RadioButtonPerempuan.TabIndex = 14
+        RadioButtonPerempuan.TabStop = True
+        RadioButtonPerempuan.Text = "Perempuan"
+        RadioButtonPerempuan.UseVisualStyleBackColor = True
+        ' 
+        ' RadioButtonLaki
+        ' 
+        RadioButtonLaki.AutoSize = True
+        RadioButtonLaki.Location = New Point(986, 167)
+        RadioButtonLaki.Name = "RadioButtonLaki"
+        RadioButtonLaki.Size = New Size(169, 45)
+        RadioButtonLaki.TabIndex = 15
+        RadioButtonLaki.TabStop = True
+        RadioButtonLaki.Text = "Laki-Laki"
+        RadioButtonLaki.UseVisualStyleBackColor = True
+        ' 
+        ' Label6
+        ' 
+        Label6.AutoSize = True
+        Label6.Location = New Point(767, 105)
+        Label6.Name = "Label6"
+        Label6.Size = New Size(195, 41)
+        Label6.TabIndex = 16
+        Label6.Text = "Jenis Kelamin"
+        ' 
+        ' Label7
+        ' 
+        Label7.AutoSize = True
+        Label7.Location = New Point(1388, 193)
+        Label7.Name = "Label7"
+        Label7.Size = New Size(157, 82)
+        Label7.TabIndex = 17
+        Label7.Text = "Golongan " & vbCrLf & "Tunjangan"
+        ' 
+        ' ComboBoxGolonganTunjangan
+        ' 
+        ComboBoxGolonganTunjangan.DropDownStyle = ComboBoxStyle.DropDownList
+        ComboBoxGolonganTunjangan.FormattingEnabled = True
+        ComboBoxGolonganTunjangan.Items.AddRange(New Object() {"Golongan 1", "Golongan 2", "Golongan 3", "Golongan 4", "Golongan 5"})
+        ComboBoxGolonganTunjangan.Location = New Point(1580, 226)
+        ComboBoxGolonganTunjangan.Name = "ComboBoxGolonganTunjangan"
+        ComboBoxGolonganTunjangan.Size = New Size(527, 49)
+        ComboBoxGolonganTunjangan.TabIndex = 18
+        ' 
+        ' TextBoxTunjangan
+        ' 
+        TextBoxTunjangan.Location = New Point(1580, 325)
+        TextBoxTunjangan.Name = "TextBoxTunjangan"
+        TextBoxTunjangan.ReadOnly = True
+        TextBoxTunjangan.Size = New Size(527, 47)
+        TextBoxTunjangan.TabIndex = 19
+        ' 
+        ' Label8
+        ' 
+        Label8.AutoSize = True
+        Label8.Location = New Point(1388, 325)
+        Label8.Name = "Label8"
+        Label8.Size = New Size(118, 41)
+        Label8.TabIndex = 20
+        Label8.Text = "Insensif"
+        ' 
         ' Form1
         ' 
-        AutoScaleDimensions = New SizeF(17F, 41F)
+        AutoScaleDimensions = New SizeF(17.0F, 41.0F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(2075, 1016)
+        ClientSize = New Size(2155, 1000)
+        Controls.Add(Label8)
+        Controls.Add(TextBoxTunjangan)
+        Controls.Add(ComboBoxGolonganTunjangan)
+        Controls.Add(Label7)
+        Controls.Add(Label6)
+        Controls.Add(RadioButtonLaki)
+        Controls.Add(RadioButtonPerempuan)
         Controls.Add(Label5)
         Controls.Add(Label4)
         Controls.Add(Label3)
@@ -236,5 +317,12 @@ Partial Class Form1
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label
+    Friend WithEvents RadioButtonPerempuan As RadioButton
+    Friend WithEvents RadioButtonLaki As RadioButton
+    Friend WithEvents Label6 As Label
+    Friend WithEvents Label7 As Label
+    Friend WithEvents ComboBoxGolonganTunjangan As ComboBox
+    Friend WithEvents TextBoxTunjangan As TextBox
+    Friend WithEvents Label8 As Label
 
 End Class
