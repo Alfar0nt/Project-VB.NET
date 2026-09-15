@@ -16,7 +16,7 @@ Imports System.Reflection
 <Assembly: System.Reflection.AssemblyCompanyAttribute("ExerciseModule4"),  _
  Assembly: System.Reflection.AssemblyConfigurationAttribute("Debug"),  _
  Assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0"),  _
- Assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fac7cccad80e0f4d8cb5a064a7b0df45021b4219"),  _
+ Assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e70fd8ed660dc4a0849afb53d733a645d10abc87"),  _
  Assembly: System.Reflection.AssemblyProductAttribute("ExerciseModule4"),  _
  Assembly: System.Reflection.AssemblyTitleAttribute("ExerciseModule4"),  _
  Assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0"),  _
