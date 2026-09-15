@@ -1,32 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Fitra Artika Sari R\\source\\repos\\ExerciseModule4\\ExerciseModule4\\ExerciseModule4.vbproj": {}
+    "D:\\github-repo\\visual-studio\\Project-VB.NET\\ExerciseModule4\\ExerciseModule4\\ExerciseModule4.vbproj": {}
   },
   "projects": {
-    "C:\\Users\\Fitra Artika Sari R\\source\\repos\\ExerciseModule4\\ExerciseModule4\\ExerciseModule4.vbproj": {
+    "D:\\github-repo\\visual-studio\\Project-VB.NET\\ExerciseModule4\\ExerciseModule4\\ExerciseModule4.vbproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Fitra Artika Sari R\\source\\repos\\ExerciseModule4\\ExerciseModule4\\ExerciseModule4.vbproj",
+        "projectUniqueName": "D:\\github-repo\\visual-studio\\Project-VB.NET\\ExerciseModule4\\ExerciseModule4\\ExerciseModule4.vbproj",
         "projectName": "ExerciseModule4",
-        "projectPath": "C:\\Users\\Fitra Artika Sari R\\source\\repos\\ExerciseModule4\\ExerciseModule4\\ExerciseModule4.vbproj",
-        "packagesPath": "C:\\Users\\Fitra Artika Sari R\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Fitra Artika Sari R\\source\\repos\\ExerciseModule4\\ExerciseModule4\\obj\\",
+        "projectPath": "D:\\github-repo\\visual-studio\\Project-VB.NET\\ExerciseModule4\\ExerciseModule4\\ExerciseModule4.vbproj",
+        "packagesPath": "C:\\Users\\maman\\.nuget\\packages\\",
+        "outputPath": "D:\\github-repo\\visual-studio\\Project-VB.NET\\ExerciseModule4\\ExerciseModule4\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Fitra Artika Sari R\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\maman\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net10.0-windows"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {}
         },
         "frameworks": {
           "net10.0-windows": {

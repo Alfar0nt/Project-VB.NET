@@ -12,9 +12,8 @@
       }
     ],
     "additionalProbingPaths": [
-      "C:\\Users\\Fitra Artika Sari R\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\Fitra Artika Sari R\\.nuget\\packages",
-      "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      "C:\\Users\\maman\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\maman\\.nuget\\packages"
     ],
     "configProperties": {
       "System.Runtime.Serialization.EnableUnsafeBinaryFormatterSerialization": false,
