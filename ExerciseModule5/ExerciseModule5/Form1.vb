@@ -39,13 +39,10 @@ Public Class Form1
 
     Private Sub BtnBr_Click(sender As Object, e As EventArgs)
         Try
-            'Iterasi For Each untuk mengosongkan TextBox dan NumericUpDown
+            'Iterasi For Each untuk mengosongkan TextBox
             For Each ctrl As Control In Me.Controls
                 If TypeOf ctrl Is TextBox Then
                     DirectCast(ctrl, TextBox).Clear()
-                End If
-                If TypeOf ctrl Is NumericUpDown Then
-                    DirectCast(ctrl, NumericUpDown).Value = 0
                 End If
             Next
 
@@ -62,6 +59,11 @@ Public Class Form1
                 Exit Sub
             End If
 
+            'Validate decimal input for prices
+            If Not ValidateDecimalInput(HB.Text, "Harga Beli") Or Not ValidateDecimalInput(HJ.Text, "Harga Jual") Or Not ValidateDecimalInput(stk.Text, "Stock") Then
+                Exit Sub
+            End If
+
             Call Koneksi()
             Dim query As String = "INSERT INTO tblbarang (Kode_Barang, Nama_Barang, Jenis, Satuan, Harga_Beli, Harga_Jual, Stock) VALUES (@kode, @nama, @jenis, @satuan, @beli, @jual, @stock)"
             cmd = New MySqlCommand(query, conn)
@@ -69,9 +71,9 @@ Public Class Form1
             cmd.Parameters.AddWithValue("@nama", nmBrg.Text)
             cmd.Parameters.AddWithValue("@jenis", jns.Text)
             cmd.Parameters.AddWithValue("@satuan", satuan.Text)
-            cmd.Parameters.AddWithValue("@beli", HB.Value)
-            cmd.Parameters.AddWithValue("@jual", HJ.Value)
-            cmd.Parameters.AddWithValue("@stock", stk.Value)
+            cmd.Parameters.AddWithValue("@beli", CDec(HB.Text))
+            cmd.Parameters.AddWithValue("@jual", CDec(HJ.Text))
+            cmd.Parameters.AddWithValue("@stock", CInt(stk.Text))
 
             cmd.ExecuteNonQuery()
             MessageBox.Show("Data berhasil disimpan!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -94,6 +96,11 @@ Public Class Form1
                 Exit Sub
             End If
 
+            'Validate decimal input for prices
+            If Not ValidateDecimalInput(HB.Text, "Harga Beli") Or Not ValidateDecimalInput(HJ.Text, "Harga Jual") Or Not ValidateDecimalInput(stk.Text, "Stock") Then
+                Exit Sub
+            End If
+
             Call Koneksi()
             Dim query As String = "UPDATE tblbarang SET Nama_Barang=@nama, Jenis=@jenis, Satuan=@satuan, Harga_Beli=@beli, Harga_Jual=@jual, Stock=@stock WHERE Kode_Barang=@kode"
             cmd = New MySqlCommand(query, conn)
@@ -101,9 +108,9 @@ Public Class Form1
             cmd.Parameters.AddWithValue("@nama", nmBrg.Text)
             cmd.Parameters.AddWithValue("@jenis", jns.Text)
             cmd.Parameters.AddWithValue("@satuan", satuan.Text)
-            cmd.Parameters.AddWithValue("@beli", HB.Value)
-            cmd.Parameters.AddWithValue("@jual", HJ.Value)
-            cmd.Parameters.AddWithValue("@stock", stk.Value)
+            cmd.Parameters.AddWithValue("@beli", CDec(HB.Text))
+            cmd.Parameters.AddWithValue("@jual", CDec(HJ.Text))
+            cmd.Parameters.AddWithValue("@stock", CInt(stk.Text))
 
             cmd.ExecuteNonQuery()
             MessageBox.Show("Data berhasil diubah!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -170,8 +177,8 @@ Public Class Form1
                 item.SubItems.Add(reader("Nama_Barang").ToString())
                 item.SubItems.Add(reader("Jenis").ToString())
                 item.SubItems.Add(reader("Satuan").ToString())
-                item.SubItems.Add(reader("Harga_Beli").ToString())
-                item.SubItems.Add(reader("Harga_Jual").ToString())
+                item.SubItems.Add(FormatCurrency(reader("Harga_Beli").ToString()))
+                item.SubItems.Add(FormatCurrency(reader("Harga_Jual").ToString()))
                 item.SubItems.Add(reader("Stock").ToString())
                 ListView1.Items.Add(item)
             End While
@@ -182,11 +189,42 @@ Public Class Form1
         End Try
     End Sub
 
-    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
+    '--- Fungsi Validasi Input Decimal ---
+    Private Function ValidateDecimalInput(input As String, fieldName As String) As Boolean
+        Try
+            If String.IsNullOrEmpty(input) Then
+                MessageBox.Show(fieldName & " harus diisi!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Return False
+            End If
 
-    End Sub
+            'Remove thousand separators (dots) and allow decimal point
+            Dim cleanInput As String = input.Replace(".", "")
 
-    Private Sub Label4_Click(sender As Object, e As EventArgs) Handles Label4.Click
+            'Validate it's a valid decimal number
+            Dim value As Decimal = CDec(cleanInput)
 
-    End Sub
+            'Optional: Add validation for negative values if needed
+            If value < 0 Then
+                MessageBox.Show(fieldName & " tidak boleh negatif!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Return False
+            End If
+
+            Return True
+        Catch ex As Exception
+            MessageBox.Show(fieldName & " tidak valid! Masukkan angka desimal (contoh: 300000.00)", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return False
+        End Try
+    End Function
+
+    '--- Fungsi Format Mata Uang ---
+    Private Function FormatCurrency(value As String) As String
+        Try
+            'Convert to decimal and format as currency
+            Dim decimalValue As Decimal = CDec(value)
+            Return String.Format("Rp {0:N0}", decimalValue)
+        Catch
+            Return value
+        End Try
+    End Function
+
 End Class
