@@ -34,9 +34,9 @@ Partial Class Form1
         Me.nmBrg = New System.Windows.Forms.TextBox()
         Me.jns = New System.Windows.Forms.TextBox()
         Me.satuan = New System.Windows.Forms.TextBox()
-        Me.HB = New System.Windows.Forms.TextBox()
-        Me.HJ = New System.Windows.Forms.TextBox()
-        Me.stk = New System.Windows.Forms.TextBox()
+        Me.HB = New System.Windows.Forms.NumericUpDown()
+        Me.HJ = New System.Windows.Forms.NumericUpDown()
+        Me.stk = New System.Windows.Forms.NumericUpDown()
         Me.btnBr = New System.Windows.Forms.Button()
         Me.btnSimpan = New System.Windows.Forms.Button()
         Me.btnUbah = New System.Windows.Forms.Button()
@@ -58,7 +58,12 @@ Partial Class Form1
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
+
+        CType(Me.HB, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.HJ, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.stk, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ListView1.SuspendLayout()
+        Me.SuspendLayout()
         '
         ' kdBrg
         '
@@ -94,6 +99,7 @@ Partial Class Form1
         Me.HB.Name = "HB"
         Me.HB.Size = New System.Drawing.Size(251, 47)
         Me.HB.TabIndex = 4
+        Me.HB.Maximum = New Decimal(New Integer() {10000000, 0, 0, 0})
         ' 
         ' HJ
         '
@@ -101,6 +107,7 @@ Partial Class Form1
         Me.HJ.Name = "HJ"
         Me.HJ.Size = New System.Drawing.Size(251, 47)
         Me.HJ.TabIndex = 5
+        Me.HJ.Maximum = New Decimal(New Integer() {10000000, 0, 0, 0})
         ' 
         ' stk
         '
@@ -108,6 +115,7 @@ Partial Class Form1
         Me.stk.Name = "stk"
         Me.stk.Size = New System.Drawing.Size(251, 47)
         Me.stk.TabIndex = 6
+        Me.stk.Maximum = New Decimal(New Integer() {10000, 0, 0, 0})
         ' 
         ' btnBr
         '
@@ -275,6 +283,9 @@ Partial Class Form1
         Me.Controls.Add(Me.nmBrg)
         Me.Controls.Add(Me.kdBrg)
         Me.Name = "Form1"
+        CType(Me.HB, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.HJ, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.stk, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ListView1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -284,9 +295,9 @@ Partial Class Form1
     Friend WithEvents nmBrg As TextBox
     Friend WithEvents jns As TextBox
     Friend WithEvents satuan As TextBox
-    Friend WithEvents HB As TextBox
-    Friend WithEvents HJ As TextBox
-    Friend WithEvents stk As TextBox
+    Friend WithEvents HB As NumericUpDown
+    Friend WithEvents HJ As NumericUpDown
+    Friend WithEvents stk As NumericUpDown
     Friend WithEvents btnBr As Button
     Friend WithEvents btnSimpan As Button
     Friend WithEvents btnUbah As Button
