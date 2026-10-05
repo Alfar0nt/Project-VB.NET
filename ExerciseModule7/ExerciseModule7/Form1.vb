@@ -34,6 +34,10 @@ Public Class Form1
         LoadMajor()
         LoadData()
     End Sub
+    Private Sub Form1_FormClosed(sender As Object,
+        e As FormClosedEventArgs) Handles MyBase.FormClosed
+        Application.Exit()
+    End Sub
     Private Sub ClearForm()
         txtStudentID.Clear()
         txtStudentName.Clear()
@@ -105,6 +109,53 @@ Public Class Form1
             End Using
         End Using
         dgvStudents.DataSource = dt
+    End Sub
+    Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
+        If Not ValidateInput() Then Exit Sub
+        Using conn As New MySqlConnection(ConnectionString)
+            Dim query As String =
+                "INSERT INTO students (student_id, student_name, major, phone) VALUES (@id, @name, @major, @phone)"
+            Using cmd As New MySqlCommand(query, conn)
+                cmd.Parameters.AddWithValue("@id", txtStudentID.Text.Trim())
+                cmd.Parameters.AddWithValue("@name", txtStudentName.Text.Trim())
+                cmd.Parameters.AddWithValue("@major", cboMajor.Text)
+                cmd.Parameters.AddWithValue("@phone", txtPhone.Text.Trim())
+                conn.Open()
+                cmd.ExecuteNonQuery()
+            End Using
+        End Using
+        LoadData()
+        ClearForm()
+    End Sub
+    Private Sub btnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click
+        If Not ValidateInput() Then Exit Sub
+        Using conn As New MySqlConnection(ConnectionString)
+            Dim query As String =
+                "UPDATE students SET student_name=@name, major=@major, phone=@phone WHERE student_id=@id"
+            Using cmd As New MySqlCommand(query, conn)
+                cmd.Parameters.AddWithValue("@name", txtStudentName.Text.Trim())
+                cmd.Parameters.AddWithValue("@major", cboMajor.Text)
+                cmd.Parameters.AddWithValue("@phone", txtPhone.Text.Trim())
+                cmd.Parameters.AddWithValue("@id", txtStudentID.Text.Trim())
+                conn.Open()
+                cmd.ExecuteNonQuery()
+            End Using
+        End Using
+        LoadData()
+        ClearForm()
+    End Sub
+    Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
+        If MessageBox.Show("Are you sure you want to delete this data?", "Confirm Delete", MessageBoxButtons.YesNo) = DialogResult.No Then Exit Sub
+        Using conn As New MySqlConnection(ConnectionString)
+            Dim query As String = "DELETE FROM students WHERE student_id=@id"
+            Using cmd As New MySqlCommand(query, conn)
+                cmd.Parameters.AddWithValue("@id", txtStudentID.Text.Trim())
+                conn.Open()
+                cmd.ExecuteNonQuery()
+            End Using
+        End Using
+        LoadData()
+        ClearForm()
     End Sub
 
 End Class
