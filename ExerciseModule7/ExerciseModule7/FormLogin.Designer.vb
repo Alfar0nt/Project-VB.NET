@@ -81,7 +81,7 @@ Partial Class FormLogin
         AutoSize = True
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
         BackgroundImageLayout = ImageLayout.Stretch
-        ClientSize = New Size(1999, 968)
+        ClientSize = New Size(1957, 877)
         Controls.Add(btnLogin)
         Controls.Add(Label2)
         Controls.Add(Label1)
