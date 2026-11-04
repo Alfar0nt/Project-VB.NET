@@ -51,6 +51,6 @@ INSERT IGNORE INTO tblbarang (kode_barang, nama_barang, harga, stok) VALUES
  ('BRG002', 'Buku Tulis', 5000,  50),
  ('BRG003', 'Penghapus', 2000,    5);
  
--- SELECT * FROM orders;
+SELECT * FROM orders;
 -- SELECT * FROM orders_detail;
 -- SELECT * FROM order_counter;
